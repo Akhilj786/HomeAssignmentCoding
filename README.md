@@ -1,2 +1,1 @@
-# WalmartCoding
-Walmart Homework coding assignment
+# Homework Coding Exercise
