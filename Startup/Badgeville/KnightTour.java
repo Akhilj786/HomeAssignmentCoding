@@ -39,7 +39,7 @@ public class KnightTour {
 	 * Numver of solutions
 	 */
 	private int solutionsCount;
-
+	private int closedCount;
 	private int start_x;
 	private int start_y;
 	/**
@@ -58,14 +58,21 @@ public class KnightTour {
 		int y = s.nextInt(); // Starting Y position
 		boolean isSingle = s.nextBoolean(); // Single tour if set else multiple
 		boolean isClosed = s.nextBoolean(); // Closed tour.
-
+		boolean isModified=s.nextBoolean();
 		KnightTour kt = new KnightTour(x, y, N, N);
 
 		// Single Solution
 		if (isSingle) {
 			System.out.println("Single solution");
 			kt.solve(x, y);
-		} else {
+		} 
+		else if(isModified){
+			for(int i=0;i<N;i++)
+				for(int j=0;j<N;j++)
+					kt.solve(i,j,isSingle,isClosed);
+			System.out.println("Total Solutions" + kt.solutionsCount+" and Closed:"+kt.closedCount);
+			
+		}else{
 			// Closed But Multiple solution
 			kt.solve(x, y, isSingle, isClosed);
 
@@ -84,6 +91,7 @@ public class KnightTour {
 	 */
 	public KnightTour(int start_x, int start_y, int xSize, int ySize) {
 		solutionsCount = 0;
+		closedCount=0;
 		this.start_x = start_x;
 		this.start_y = start_y;
 		this.xSize = xSize;
@@ -156,6 +164,7 @@ public class KnightTour {
 				if (isClosed(start_x, start_y, x, y)) {
 					System.out.println(start_x + "," + start_y + "->" + x + ","
 							+ y);
+					closedCount++;
 					printBoard();
 				}
 			} else {
