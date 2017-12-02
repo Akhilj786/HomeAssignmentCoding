@@ -32,16 +32,13 @@ class Pair<T,Q> {
   }
   
   public static List<Pair<Integer, Integer>> getPairs(int target, List<Integer> values) {
-    HelloWorld hw=new HelloWorld();
+    CrewApp hw=new CrewApp();
     HashSet<Integer> set=new HashSet<Integer>();
     List<Pair<Integer, Integer>> list=new ArrayList<Pair<Integer, Integer>>();
-    //System.out.println(target);
     for(Integer i:values){
       Integer val=target-i;
-      //System.out.println(val);
       if(set.contains(i)){
         Pair p=hw.new Pair(i,val);
-        //System.out.println(p);
         list.add(p);
       }else{
         
@@ -50,8 +47,6 @@ class Pair<T,Q> {
       }
       
     }
-    /*for(Pair p:list)
-        System.out.println(p);*/
     
     return list;
     
