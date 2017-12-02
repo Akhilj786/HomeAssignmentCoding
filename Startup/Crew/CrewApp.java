@@ -41,15 +41,9 @@ class Pair<T,Q> {
         Pair p=hw.new Pair(i,val);
         list.add(p);
       }else{
-        
         set.add(val);
-        
       }
-      
     }
-    
     return list;
-    
-  
   }
 }
